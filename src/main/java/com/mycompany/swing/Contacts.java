@@ -2,6 +2,7 @@ package com.mycompany.swing;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 
 public class Contacts {
     static ArrayList<Contact> contacts = new ArrayList<>();
@@ -17,17 +18,23 @@ public class Contacts {
         return contacts;
     }
 
-    protected void addContact(String name, String phone, String Email, String address) {
-        contacts.add(new Contact(name, phone,Email,address));
+    protected void addContact(String name, String phone,String Dphone, String address) {
+
+        contacts.add(new Contact(name, phone,Dphone, address));
         System.out.println("Contact added");
 
     }
 
-    protected void addContact(User obj) {
-        contacts.add(new Contact(obj.getName(), obj.getPhone(),obj.getEmail(),obj.getAddress()));
-        System.out.println("Contact added");
+    // protected void addContact(User obj) {
+    //     Contact newContact = new Contact(obj.getName(), obj.getPhone(), obj.getAddress());
+    //     contacts.add(newContact);
+    //     System.out.println("Contact added with ID: " + newContact.getID());
+    // }
+        protected void addContact(Contact obj) {
+        contacts.add(obj);
+        System.out.println("Contact added with ID: " + obj.getID());
     }
-
+    
     public void editContact(int index, String name, String phone) {
         Contact contact = contacts.get(index);
         contact.setName(name);
@@ -38,10 +45,67 @@ public class Contacts {
     public void deleteContacts(int index, String s) {
         if (s.equals("yes")) {
             contacts.clear();
-        }
-        else {
+        } else {
             contacts.remove(index);
-        System.out.println("Contact has been deleted");
+            System.out.println("Contact has been deleted");
+        }
+    }
+
+    public boolean exists(String s) {
+        for (Contact obj : contacts) {
+            if (obj.getPhone().equals(s)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean idExists(int s) {
+        for (Contact obj : contacts) {
+            System.out.println(obj.getID());
+            if (obj.getID()==s) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Contact returnPhoneObj(String s) {
+        if (exists(s)) {
+            for (Contact obj : contacts) {
+                if (obj.getPhone().equals(s)) {
+                    return obj;
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "This phone number isn't in the system ",
+                    "Invalid input",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        return null;
+    }
+    
+    public Contact returnPhoneObjById(int s) {
+        
+            for (Contact obj : contacts) {
+                if (obj.getID()==(s)) {
+                    return obj;
+                }
+            }
+        return null;
+    }
+
+    public void deleteContacts(String s) {
+        if (exists(s)) {
+            for (Contact obj : contacts) {
+                if (obj.getPhone().equals(s)) {
+                    contacts.remove(obj);
+                    return;
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "This phone number isn't in the system ",
+                    "Invalid input",
+                    JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -64,7 +128,6 @@ public class Contacts {
 
         return false;
     }
-    
 
     public boolean isDuplicated(int editedIndex, String phone) {
         if (new Contact().validPhone(phone)) {

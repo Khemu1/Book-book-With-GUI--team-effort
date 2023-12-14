@@ -45,6 +45,8 @@ public class NewJFrame extends javax.swing.JFrame {
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
+        // <editor-fold defaultstate="collapsed" desc="Generated
+        // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -55,12 +57,13 @@ public class NewJFrame extends javax.swing.JFrame {
         phoneNumber = new javax.swing.JTextField();
         clearButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
+        deleteBook = new javax.swing.JButton();
         updateButton = new javax.swing.JButton();
         NameLable = new javax.swing.JLabel();
         phoneLable1 = new javax.swing.JLabel();
         addressF = new javax.swing.JTextField();
         NameLable1 = new javax.swing.JLabel();
+        deleteButton1 = new javax.swing.JButton();
         javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         booked = new javax.swing.JTable();
 
@@ -105,12 +108,17 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        deleteButton.setBackground(new java.awt.Color(240, 240, 240));
-        deleteButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 14)); // NOI18N
-        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/swing/Icons/delete.png"))); // NOI18N
-        deleteButton.setText("Delete Account");
-        deleteButton.setBorder(null);
-        deleteButton.setName("deleteButton"); // NOI18N
+        deleteBook.setBackground(new java.awt.Color(240, 240, 240));
+        deleteBook.setFont(new java.awt.Font("Segoe UI Semilight", 1, 14)); // NOI18N
+        deleteBook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/swing/Icons/delete.png"))); // NOI18N
+        deleteBook.setText("Delete Booking");
+        deleteBook.setBorder(null);
+        deleteBook.setName("deleteBook"); // NOI18N
+        deleteBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBookActionPerformed(evt);
+            }
+        });
 
         updateButton.setBackground(new java.awt.Color(240, 240, 240));
         updateButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 14)); // NOI18N
@@ -142,6 +150,18 @@ public class NewJFrame extends javax.swing.JFrame {
         NameLable1.setText("Address");
         NameLable1.setName("NameLable1"); // NOI18N
 
+        deleteButton1.setBackground(new java.awt.Color(240, 240, 240));
+        deleteButton1.setFont(new java.awt.Font("Segoe UI Semilight", 1, 14)); // NOI18N
+        deleteButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/swing/Icons/delete.png"))); // NOI18N
+        deleteButton1.setText("Delete Account");
+        deleteButton1.setBorder(null);
+        deleteButton1.setName("deleteButton1"); // NOI18N
+        deleteButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -152,13 +172,9 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                    .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(clearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(updateButton, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)))
+                                .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(NameLable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(phoneLable1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -172,7 +188,16 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(addressF, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(31, Short.MAX_VALUE))))
+                        .addContainerGap(31, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(deleteBook, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(113, 113, 113))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(deleteButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                        .addGap(62, 62, 62)
+                        .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,15 +214,17 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addComponent(NameLable1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addressF, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(deleteBook, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36))
+                    .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
 
         jScrollPane1.setName("jScrollPane1"); // NOI18N
@@ -209,12 +236,19 @@ public class NewJFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Name", "Phone Number", "Address"
+                "ID", "Name", "Phone Number", "Address"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, true, true
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -243,10 +277,11 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(104, 104, 104))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(63, 63, 63))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
+                        .addGap(167, 167, 167))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -269,30 +304,134 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
-        // TODO add your handling code here:
-        String name = Name.getText();
-        String phone = phoneNumber.getText();
-        String address = addressF.getText();
-        if(!phone.isEmpty() || !name.isEmpty() || !address.isEmpty() ) {
-            Name.setText("");
-            phoneNumber.setText("");
-            addressF.setText("");
-        }
-        else    {
-            JOptionPane.showMessageDialog(null, "Nothing to clear",
-                                        "invalid Click", JOptionPane.WARNING_MESSAGE);
-        }
-    }//GEN-LAST:event_clearButtonActionPerformed
-
-        private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addButtonActionPerformed
-
+        private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_clearButtonActionPerformed
                 String name = Name.getText();
                 String phone = phoneNumber.getText();
                 String address = addressF.getText();
+                if (!phone.isEmpty() || !name.isEmpty() || !address.isEmpty()) {
+                        Name.setText("");
+                        phoneNumber.setText("");
+                        addressF.setText("");
+                } else {
+                        JOptionPane.showMessageDialog(null, "Nothing to clear",
+                                        "invalid Click", JOptionPane.WARNING_MESSAGE);
+                }
+        }// GEN-LAST:event_clearButtonActionPerformed
+
+        private void deleteBookActionPerformed(java.awt.event.ActionEvent evt) {
+                String idToDelete = JOptionPane.showInputDialog("Enter your ID:");
+                String phoneToDelete = JOptionPane.showInputDialog("Enter your phone number:");
+
+                if (idToDelete != null && !idToDelete.isEmpty() && phoneToDelete != null && !phoneToDelete.isEmpty()) {
+                        int id = Integer.parseInt(idToDelete);
+
+                        if (id > 0) {
+                                if (conts.idExists(id)) {
+                                        try {
+                                                // Get the encrypted phone number using the ID
+                                                Contact userToDelete = conts.returnPhoneObjById(id);
+                                                String en = userToDelete.getDphone();
+                                                String decryptedPhoneToDelete = PhoneNumberEncryptor
+                                                                .decrypt(userToDelete.getDphone());
+
+                                                // Check if the entered phone number matches the decrypted phone number
+                                                if (phoneToDelete.equals(decryptedPhoneToDelete)) {
+                                                        // Remove the user from the data structure
+                                                        conts.deleteContacts(phoneToDelete);
+
+                                                        // Remove the corresponding row from the table
+                                                        DefaultTableModel model = (DefaultTableModel) booked.getModel();
+                                                        for (int i = 0; i < model.getRowCount(); i++) {
+                                                                if ((int) model.getValueAt(i, 0) == id
+                                                                                && model.getValueAt(i, 2).equals(en)) {
+                                                                        model.removeRow(i);
+                                                                        break;
+                                                                }
+                                                        }
+
+                                                        // Display a message indicating successful deletion
+                                                        JOptionPane.showMessageDialog(null,
+                                                                        "Your booking has been deleted successfully.",
+                                                                        "Deletion Successful",
+                                                                        JOptionPane.INFORMATION_MESSAGE);
+                                                } else {
+                                                        // Display a message indicating that the entered phone number
+                                                        // does not match
+                                                        JOptionPane.showMessageDialog(null,
+                                                                        "Phone number does not match the provided ID.",
+                                                                        "Deletion Failed", JOptionPane.WARNING_MESSAGE);
+                                                }
+                                        } catch (Exception e) {
+                                                e.printStackTrace(); // Handle the exception appropriately for your
+                                                                     // application
+                                        }
+                                } else {
+                                        // Display a message indicating that the ID does not exist
+                                        JOptionPane.showMessageDialog(null, "ID not found. Deletion failed.",
+                                                        "Deletion Failed",
+                                                        JOptionPane.WARNING_MESSAGE);
+                                }
+                        } else {
+                                // Display a message indicating that the ID is not valid
+                                JOptionPane.showMessageDialog(null, "Invalid ID. Please enter a positive integer.",
+                                                "Deletion Failed", JOptionPane.WARNING_MESSAGE);
+                        }
+                } else {
+                        // Display a message indicating that the user canceled the deletion process
+                        JOptionPane.showMessageDialog(null, "Deletion canceled. No ID or phone number entered.",
+                                        "Deletion Canceled",
+                                        JOptionPane.WARNING_MESSAGE);
+                }
+        }
+        // GEN-LAST:event_deleteBookActionPerformed
+
+        private void deleteButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteButton1ActionPerformed
+                String userPhone = JOptionPane.showInputDialog(null, "Enter your Phone for confirmation:");
+                if (userPhone != null && !userPhone.isEmpty()) {
+                        try {
+                                // Decrypt the entered phone number
+                                String decryptedPhone = PhoneNumberEncryptor.decrypt(userPhone);
+
+                                if (conts.exists(decryptedPhone)) {
+                                        conts.deleteContacts(decryptedPhone);
+
+                                        DefaultTableModel model = (DefaultTableModel) booked.getModel();
+                                        for (int i = 0; i < model.getRowCount(); i++) {
+                                                // Decrypt the phone number in the table for comparison
+                                                String encryptedPhoneInTable = (String) model.getValueAt(i, 1);
+                                                String decryptedPhoneInTable = PhoneNumberEncryptor
+                                                                .decrypt(encryptedPhoneInTable);
+
+                                                if (decryptedPhone.equals(decryptedPhoneInTable)) {
+                                                        model.removeRow(i);
+                                                        break;
+                                                }
+                                        }
+
+                                        JOptionPane.showMessageDialog(null,
+                                                        "Your account has been successfully deleted.",
+                                                        "Account Deleted", JOptionPane.INFORMATION_MESSAGE);
+                                } else {
+                                        JOptionPane.showMessageDialog(null,
+                                                        "Phone number not found. Please enter a valid phone number.",
+                                                        "Invalid Phone Number", JOptionPane.WARNING_MESSAGE);
+                                }
+                        } catch (Exception e) {
+                                e.printStackTrace();
+                                JOptionPane.showMessageDialog(null, "Error while decrypting the entered phone number",
+                                                "Decryption Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                }
+
+        }// GEN-LAST:event_deleteButton1ActionPerformed
+
+        private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {
+                String name = Name.getText();
+                String phone = phoneNumber.getText();
+                String address = addressF.getText();
+
                 boolean validName = false, validPhone = false, validAddress = false;
                 DefaultTableModel model = (DefaultTableModel) booked.getModel();
-
 
                 if (phone.isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Please fill out the phone number field",
@@ -332,20 +471,32 @@ public class NewJFrame extends javax.swing.JFrame {
                         }
 
                         if (validAddress && validName && validPhone) {
-                                if (!conts.isDuplicated(phone)) {
-                                        User obj = new User(name,phone,address);
-                                        conts.addContact(obj);
-                                        model.addRow(new Object[] { name, phone, address });
-                                }
-                                else {
-                                JOptionPane.showMessageDialog(null, "This phone number is already in the system, please enter another one",
-                                                "Invalid Information", JOptionPane.WARNING_MESSAGE);
-                                }
+                                try {
+                                        // Encrypt the phone number before adding to the table
+                                        String encryptedPhone = PhoneNumberEncryptor.encrypt(phone);
 
+                                        if (!conts.isDuplicated(phone)) {
+                                                Contact obj = new Contact(name, phone, encryptedPhone, address);
+                                                conts.addContact(obj); // Use the addContact method consistently
+                                                use.displayAll();
+                                                model.addRow(new Object[] { obj.getID(), name, encryptedPhone,
+                                                                address });
+
+                                        } else {
+                                                JOptionPane.showMessageDialog(null,
+                                                                "This phone number is already in the system, please enter another one",
+                                                                "Invalid Information", JOptionPane.WARNING_MESSAGE);
+                                        }
+                                } catch (Exception e) {
+                                        e.printStackTrace();
+                                        JOptionPane.showMessageDialog(null,
+                                                        "Error while encrypting the phone number",
+                                                        "Encryption Error", JOptionPane.ERROR_MESSAGE);
+                                }
                         }
                 }
-
-        }// GEN-LAST:event_addButtonActionPerformed
+        }
+        // GEN-LAST:event_addButtonActionPerformed
 
         /**
          * @param args the command line arguments
@@ -399,7 +550,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField addressF;
     private javax.swing.JTable booked;
     private javax.swing.JButton clearButton;
-    private javax.swing.JButton deleteButton;
+    private javax.swing.JButton deleteBook;
+    private javax.swing.JButton deleteButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField2;

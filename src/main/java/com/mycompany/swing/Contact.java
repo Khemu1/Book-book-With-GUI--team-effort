@@ -1,29 +1,62 @@
 package com.mycompany.swing;
 
+import java.util.*;
+
+import javax.swing.JOptionPane;
+
 public class Contact {
     private String name;
-    private String phone;
-    private String email="";
+    private String phone = "";
+    private String Dphone = "";
+
+    private String email = "";
     private String password;
     private String address;
+    private int ID = -1;
+    static Set<Integer> randomIds = new HashSet<Integer>();
 
     public Contact() {
     }
 
-    public Contact(String name, String phone, String Email, String address) {
-        setName(name);
-        setAddress(address);
-        setEmail(Email);
-        setPhone(phone);
-    }
-
-    public Contact(String name, String phone, String address) {
+    public Contact(String name, String phone,String Dphone, String address) {
+        giveRandomId();
         setName(name);
         setAddress(address);
         setPhone(phone);
+        this.Dphone = Dphone;
+                                // JOptionPane.showMessageDialog(null,
+                                // "Information has been added. Please note that your ID is: " + this.getID()
+                                //         + ". Please save it.",
+                                // "Operation complete", JOptionPane.INFORMATION_MESSAGE);
     }
-    
 
+    {
+        addIds();
+}
+private void addIds() {
+    for (; randomIds.size() != 1200;) {
+        int random = 0;
+        while (random == 0) {
+            random = (int) (Math.random() * Math.pow(10, 5));
+        }
+        randomIds.add(random);
+    }
+}
+
+
+    public void giveRandomId() {
+        Iterator<Integer> iterator = randomIds.iterator();
+        if (iterator.hasNext()) {
+            this.ID = iterator.next();
+            iterator.remove();
+        } else {
+            System.err.println("No more available IDs");
+        }
+    }
+
+    public String getDphone() {
+        return this.Dphone;
+    }
     public String getName() {
         return name;
     }
@@ -72,6 +105,10 @@ public class Contact {
         if (validAddress(address)) {
             this.address = address;
         }
+    }
+
+    public int getID() {
+        return this.ID;
     }
 
     boolean validPhone(String phone) {

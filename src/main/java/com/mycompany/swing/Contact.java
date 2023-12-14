@@ -7,42 +7,47 @@ import javax.swing.JOptionPane;
 public class Contact {
     private String name;
     private String phone = "";
-    private String Dphone = "";
-
-    private String email = "";
-    private String password;
+    private String ePhone = "";
+    private String eEmail = "";
     private String address;
-    private int ID = -1;
+    private String email;
+    private String password;
+    private int ID = 15;
     static Set<Integer> randomIds = new HashSet<Integer>();
 
     public Contact() {
     }
 
-    public Contact(String name, String phone,String Dphone, String address) {
-        giveRandomId();
+    public Contact(String name, String phone, String Ephone, String address,String email,String eEmail) {
+        // giveRandomId();
         setName(name);
         setAddress(address);
         setPhone(phone);
-        this.Dphone = Dphone;
-                                // JOptionPane.showMessageDialog(null,
-                                // "Information has been added. Please note that your ID is: " + this.getID()
-                                //         + ". Please save it.",
-                                // "Operation complete", JOptionPane.INFORMATION_MESSAGE);
+        setEmail(email);
+        this.ePhone = ePhone;
+        this.eEmail = eEmail;
+        System.out.println(this.ID);
     }
 
-    {
+    public Contact(String password, String email) {
+        giveRandomId();
+        setEmail(email);
+        setAddress(email);
+    }
+
+    static {
         addIds();
-}
-private void addIds() {
-    for (; randomIds.size() != 1200;) {
-        int random = 0;
-        while (random == 0) {
-            random = (int) (Math.random() * Math.pow(10, 5));
-        }
-        randomIds.add(random);
     }
-}
 
+    static private void addIds() {
+        for (; randomIds.size() != 1200;) {
+            int random = 0;
+            while (random == 0) {
+                random = (int) (Math.random() * Math.pow(10, 5));
+            }
+            randomIds.add(random);
+        }
+    }
 
     public void giveRandomId() {
         Iterator<Integer> iterator = randomIds.iterator();
@@ -54,9 +59,21 @@ private void addIds() {
         }
     }
 
-    public String getDphone() {
-        return this.Dphone;
+    public String getephone() {
+        return this.ePhone;
     }
+
+    public void setephone(String s) {
+        this.ePhone = s;
+    }
+        public String geteEmail() {
+        return this.eEmail;
+    }
+
+    public void seteEmail(String s) {
+        this.eEmail = s;
+    }
+
     public String getName() {
         return name;
     }
@@ -77,6 +94,16 @@ private void addIds() {
         }
     }
 
+    public String getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(String address) {
+        if (validAddress(address)) {
+            this.address = address;
+        }
+    }
+
     public String getEmail() {
         return this.email;
     }
@@ -94,16 +121,6 @@ private void addIds() {
     public void setPassword(String password) {
         if (validPass(password)) {
             this.password = password;
-        }
-    }
-
-    public String getAddress() {
-        return this.address;
-    }
-
-    public void setAddress(String address) {
-        if (validAddress(address)) {
-            this.address = address;
         }
     }
 

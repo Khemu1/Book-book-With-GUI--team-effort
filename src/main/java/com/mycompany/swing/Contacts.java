@@ -18,23 +18,24 @@ public class Contacts {
         return contacts;
     }
 
-    protected void addContact(String name, String phone,String Dphone, String address) {
+    protected void addContact(String name, String phone, String Dphone, String address, String email, String eEmail) {
 
-        contacts.add(new Contact(name, phone,Dphone, address));
+        contacts.add(new Contact(name, phone, Dphone, address, email, eEmail));
         System.out.println("Contact added");
 
     }
 
     // protected void addContact(User obj) {
-    //     Contact newContact = new Contact(obj.getName(), obj.getPhone(), obj.getAddress());
-    //     contacts.add(newContact);
-    //     System.out.println("Contact added with ID: " + newContact.getID());
+    // Contact newContact = new Contact(obj.getName(), obj.getPhone(),
+    // obj.getAddress());
+    // contacts.add(newContact);
+    // System.out.println("Contact added with ID: " + newContact.getID());
     // }
-        protected void addContact(Contact obj) {
+    protected void addContact(Contact obj) {
         contacts.add(obj);
         System.out.println("Contact added with ID: " + obj.getID());
     }
-    
+
     public void editContact(int index, String name, String phone) {
         Contact contact = contacts.get(index);
         contact.setName(name);
@@ -59,10 +60,20 @@ public class Contacts {
         }
         return false;
     }
+
     public boolean idExists(int s) {
         for (Contact obj : contacts) {
             System.out.println(obj.getID());
-            if (obj.getID()==s) {
+            if (obj.getID() == s) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean emailExists(String s) {
+        for (Contact obj : contacts) {
+            if (obj.getEmail().equals(s)) {
                 return true;
             }
         }
@@ -83,21 +94,49 @@ public class Contacts {
         }
         return null;
     }
-    
-    public Contact returnPhoneObjById(int s) {
-        
+    public Contact returnEmailObj(String s) {
+        if (exists(s)) {
             for (Contact obj : contacts) {
-                if (obj.getID()==(s)) {
+                if (obj.getEmail().equals(s)) {
                     return obj;
                 }
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "This email isn't in the system ",
+                    "Invalid input",
+                    JOptionPane.ERROR_MESSAGE);
+        }
         return null;
     }
 
-    public void deleteContacts(String s) {
+    public Contact returnPhoneObjById(int s) {
+
+        for (Contact obj : contacts) {
+            if (obj.getID() == (s)) {
+                return obj;
+            }
+        }
+        return null;
+    }
+
+    public void deleteContactsViaPhone(String s) {
         if (exists(s)) {
             for (Contact obj : contacts) {
                 if (obj.getPhone().equals(s)) {
+                    contacts.remove(obj);
+                    return;
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "This phone number isn't in the system ",
+                    "Invalid input",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    public void deleteContactsViaEmail(String s) {
+        if (exists(s)) {
+            for (Contact obj : contacts) {
+                if (obj.getEmail().equals(s)) {
                     contacts.remove(obj);
                     return;
                 }
@@ -129,10 +168,10 @@ public class Contacts {
         return false;
     }
 
-    public boolean isDuplicated(int editedIndex, String phone) {
-        if (new Contact().validPhone(phone)) {
+    public boolean isDuplicatedEdit(String email, String phone) {
+        if (new User().validPhone(phone)) {
             for (int i = 0; i < contacts.size(); i++) {
-                if (i != editedIndex && contacts.get(i).getPhone().equals(phone)) {
+                if ( !(contacts.get(i).getEmail().equals(email)) && contacts.get(i).getPhone().equals(phone)) {
                     System.out.println("Duplicated Phone number. Please enter another one.");
                     return true;
                 }
@@ -141,25 +180,4 @@ public class Contacts {
         return false;
     }
 
-    public boolean login(String email, String password) {
-        for (int i = 0; i < contacts.size(); i++) {
-            if (contacts.get(i).getPass().equals(password) && contacts.get(i).getEmail().equals(email)) {
-                System.out.println("Welcome back, " + contacts.get(i).getName());
-                return true;
-            }
-        }
-        System.out.println("Invalid Email or Password");
-        return false;
-    }
-
-    public Contact giveUserObject(String email, String password) {
-        Contact user = new Contact();
-        for (int i = 0; i < contacts.size(); i++) {
-            if (contacts.get(i).getPass().equals(password) && contacts.get(i).getEmail().equals(email)) {
-                return contacts.get(i);
-            }
-        }
-        user = null;
-        return user;
-    }
 }

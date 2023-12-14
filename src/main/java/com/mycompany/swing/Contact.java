@@ -12,14 +12,14 @@ public class Contact {
     private String address;
     private String email;
     private String password;
-    private int ID = 15;
+    private int ID = -1;
     static Set<Integer> randomIds = new HashSet<Integer>();
 
     public Contact() {
     }
 
     public Contact(String name, String phone, String Ephone, String address,String email,String eEmail) {
-        // giveRandomId();
+        giveRandomId();
         setName(name);
         setAddress(address);
         setPhone(phone);
